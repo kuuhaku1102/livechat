@@ -255,3 +255,142 @@ function lcd_enqueue_affiliate_rewriter_script() {
     wp_enqueue_script( 'lcd-affiliate-rewriter' );
 }
 add_action( 'wp_enqueue_scripts', 'lcd_enqueue_affiliate_rewriter_script', 20 );
+
+/**
+ * ドメイン文字列をルートドメインへ正規化する
+ *
+ * @param string $domain 入力ドメイン
+ * @return string 正規化済みドメイン
+ */
+function lcd_normalize_root_domain( $domain ) {
+    $domain = strtolower( trim( $domain ) );
+
+    if ( empty( $domain ) ) {
+        return '';
+    }
+
+    // スキーム付きの場合は parse_url でホストを取得
+    if ( false !== strpos( $domain, '://' ) ) {
+        $parsed = wp_parse_url( $domain );
+        if ( isset( $parsed['host'] ) ) {
+            $domain = $parsed['host'];
+        }
+    }
+
+    // www. を除外
+    $domain = preg_replace( '/^www\./', '', $domain );
+
+    return $domain;
+}
+
+/**
+ * ショートコード: ドメインで女性プロフィールをフィルタリング
+ *
+ * [angel_sort domain="angel-live.com" limit="100"]
+ *
+ * @param array $atts ショートコード属性
+ * @return string HTML
+ */
+function lcd_shortcode_angel_sort( $atts ) {
+    global $wpdb;
+
+    $atts = shortcode_atts(
+        array(
+            'domain' => '',
+            'limit'  => 100,
+        ),
+        $atts,
+        'angel_sort'
+    );
+
+    $domain = lcd_normalize_root_domain( $atts['domain'] );
+    $limit  = absint( $atts['limit'] );
+
+    if ( empty( $domain ) ) {
+        return '<p style="color:red;">domain="" が入力されていません。</p>';
+    }
+
+    if ( $limit <= 0 ) {
+        $limit = 100;
+    }
+
+    // プラグイン側でテーブルが指定されていればそれを使う
+    if ( defined( 'LPM_TABLE_NAME' ) ) {
+        $table = LPM_TABLE_NAME;
+    } else {
+        $table = $wpdb->prefix . 'live_profiles';
+    }
+
+    // テーブル存在チェック
+    $exists = $wpdb->get_var(
+        $wpdb->prepare( 'SHOW TABLES LIKE %s', $table )
+    );
+
+    if ( $exists !== $table ) {
+        return '<p style="color:red;">テーブル live_profiles が存在しません。</p>';
+    }
+
+    // 指定ドメインを含むURLのみ取得
+    $query = $wpdb->prepare(
+        "SELECT samune, url, oneword, created_at FROM {$table}
+         WHERE url LIKE %s
+         ORDER BY created_at DESC
+         LIMIT %d",
+        '%' . $wpdb->esc_like( $domain ) . '%',
+        $limit
+    );
+
+    $rows = $wpdb->get_results( $query );
+
+    if ( ! $rows ) {
+        return '<p style="color:#666;">指定したドメインのデータはありません。</p>';
+    }
+
+    // URLのホスト部分で最終フィルタリング（部分一致を排除）
+    $filtered = array();
+
+    foreach ( $rows as $row ) {
+        if ( empty( $row->url ) ) {
+            continue;
+        }
+
+        $parsed = wp_parse_url( $row->url );
+        if ( empty( $parsed['host'] ) ) {
+            continue;
+        }
+
+        $host = lcd_normalize_root_domain( $parsed['host'] );
+
+        if ( $host === $domain ) {
+            $filtered[] = $row;
+        }
+    }
+
+    if ( empty( $filtered ) ) {
+        return '<p style="color:#666;">指定したドメインのデータはありません。</p>';
+    }
+
+    ob_start();
+    ?>
+    <div class="lcd-grid">
+        <?php foreach ( $filtered as $row ) :
+            $url     = ! empty( $row->url ) ? esc_url( $row->url ) : '#';
+            $samune  = ! empty( $row->samune ) ? esc_url( $row->samune ) : '';
+            $oneword = ! empty( $row->oneword ) ? esc_html( $row->oneword ) : '';
+        ?>
+            <a class="lcd-card" href="<?php echo $url; ?>" target="_blank" rel="noopener">
+                <?php if ( $samune ) : ?>
+                    <img src="<?php echo $samune; ?>" alt="">
+                <?php else : ?>
+                    <div style="width:100%;height:220px;background:#eee;"></div>
+                <?php endif; ?>
+                <div class="lcd-oneword">
+                    <?php echo $oneword ? $oneword : '・・・'; ?>
+                </div>
+            </a>
+        <?php endforeach; ?>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode( 'angel_sort', 'lcd_shortcode_angel_sort' );
