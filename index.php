@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <p>テスト</p>
 <div class="lcd-container">
     <header class="lcd-header">
         <h1><?php bloginfo( 'name' ); ?></h1>
