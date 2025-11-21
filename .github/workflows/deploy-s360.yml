@@ -1,4 +1,4 @@
-name: Deploy LiveChat Theme to s360.jp
+name: Deploy LiveChat Directory v2 Theme to s360.jp
 
 on:
   push:
@@ -20,13 +20,14 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Test SSH Connection
+      # Remote directory 作成（存在してもOK）
+      - name: Create remote theme directory
         run: |
           ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.SSH_PORT }} \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "echo '✅ SSH CONNECT OK' && hostname && pwd"
+            "mkdir -p public_html/s360.jp/wp-content/themes/live-chat-directory-theme-v2"
 
-      - name: Deploy theme to ConoHa WING (s360.jp)
+      - name: Deploy theme to s360.jp
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           server: ${{ secrets.SSH_HOST }}
@@ -34,11 +35,11 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-          # ここを修正。テーマが直置きなのでルートを使う
+          # GitHubリポジトリのテーマファイルはルート直下
           local_path: ./
 
-          # デプロイ先（フォルダ名をそのままテーマ名扱いにする）
-          remote_path: public_html/s360.jp/wp-content/themes/livechat/
+          # ← 正しいフォルダ名（ここ最重要）
+          remote_path: public_html/s360.jp/wp-content/themes/live-chat-directory-theme-v2/
 
           sftp_only: true
           delete_remote_files: false
