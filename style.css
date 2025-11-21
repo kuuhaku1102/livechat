@@ -1,0 +1,74 @@
+/*
+Theme Name: Live Chat Directory Theme
+Theme URI: https://example.com/
+Author: InfinityDesign
+Author URI: https://example.com/
+Description: ライブチャット用のプロフィール一覧をカード型で表示するミニマルテーマ（v2）。wp_live_profiles テーブルのサムネイル＋ひとことをトップページに表示します。
+Version: 2.0
+Text Domain: live-chat-directory-theme
+*/
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Arial, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background: #f5f7fb;
+    color: #333;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+.lcd-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+.lcd-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+.lcd-header h1 {
+    font-size: 28px;
+    margin: 0 0 8px;
+}
+.lcd-header p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+.lcd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+.lcd-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform .2s ease, box-shadow .2s ease;
+    display: block;
+}
+.lcd-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+.lcd-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+.lcd-oneword {
+    padding: 10px 12px 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #444;
+    min-height: 44px;
+}
+.lcd-footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 12px;
+    color: #999;
+}
