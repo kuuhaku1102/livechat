@@ -168,9 +168,9 @@ get_header();
 
     <!-- 各ライブチャットサイト別プロフィール -->
     <article class="lcd-article">
-        <h2><span class="lcd-emoji">🌸</span> FANZAライブチャットの女性たち</h2>
+        <h2><span class="lcd-emoji">🌸</span> エンジェルライブの女性たち</h2>
         <div class="lcd-article-content">
-            <p>プロのチャットレディが多く在籍するFANZAライブチャット。美人系から癒し系まで、多彩な女性が揃っています。</p>
+            <p>プロのチャットレディが多く在籍するエンジェルライブ。美人系から癒し系まで、多彩な女性が揃っています。</p>
             <?php echo do_shortcode('[angel_sort domain="angel-live.com" limit="12"]'); ?>
         </div>
     </article>
