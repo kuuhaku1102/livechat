@@ -175,14 +175,166 @@ a {
         transform: translateY(-5px);
     }
 }
-.lcd-article p {
+
+/* 記事内コンテンツ */
+.lcd-article-content {
     font-size: 15px;
     line-height: 1.9;
     color: #555;
-    margin: 0;
-    text-align: justify;
+}
+.lcd-article-content p {
+    margin: 0 0 16px;
     background: #fff;
     padding: 16px;
     border-radius: 12px;
     box-shadow: inset 0 1px 3px rgba(255, 192, 224, 0.1);
+}
+.lcd-article-content p:last-child {
+    margin-bottom: 0;
+}
+.lcd-article-content h3 {
+    font-size: 18px;
+    color: #ff6b9d;
+    margin: 24px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid #ffb3d9;
+    font-weight: 600;
+}
+.lcd-article-content h3:first-child {
+    margin-top: 0;
+}
+.lcd-article-content ul,
+.lcd-article-content ol {
+    margin: 0 0 16px;
+    padding-left: 24px;
+    background: #fff;
+    padding: 16px 16px 16px 40px;
+    border-radius: 12px;
+    box-shadow: inset 0 1px 3px rgba(255, 192, 224, 0.1);
+}
+.lcd-article-content ul:last-child,
+.lcd-article-content ol:last-child {
+    margin-bottom: 0;
+}
+.lcd-article-content li {
+    margin-bottom: 8px;
+    line-height: 1.8;
+}
+.lcd-article-content li:last-child {
+    margin-bottom: 0;
+}
+.lcd-article-content strong {
+    color: #ff6b9d;
+    font-weight: 600;
+}
+
+/* FAQ用スタイル */
+.faq-list {
+    margin: 0;
+    padding: 0;
+}
+.faq-list dt {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff6b9d;
+    margin: 0 0 8px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #fff0f6 0%, #ffe8f0 100%);
+    border-radius: 8px;
+    border-left: 4px solid #ff6b9d;
+}
+.faq-list dt:before {
+    content: 'Q. ';
+    font-weight: 700;
+}
+.faq-list dd {
+    margin: 0 0 20px 0;
+    padding: 12px 16px;
+    background: #fff;
+    border-radius: 8px;
+    line-height: 1.8;
+    box-shadow: inset 0 1px 3px rgba(255, 192, 224, 0.1);
+}
+.faq-list dd:before {
+    content: 'A. ';
+    font-weight: 700;
+    color: #ff6b9d;
+}
+.faq-list dd:last-child {
+    margin-bottom: 0;
+}
+
+/* 比較表用スタイル */
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 16px 0 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 192, 224, 0.2);
+}
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 14px;
+}
+.comparison-table thead {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+.comparison-table thead th {
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid #ffc0e0;
+    white-space: nowrap;
+}
+.comparison-table tbody th {
+    background: linear-gradient(135deg, #fff0f6 0%, #ffe8f0 100%);
+    color: #ff6b9d;
+    font-weight: 600;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ffc0e0;
+}
+.comparison-table tbody td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ffe8f0;
+    color: #555;
+}
+.comparison-table tbody tr:nth-child(even) {
+    background: #fffbfd;
+}
+.comparison-table tbody tr:hover {
+    background: #fff9fc;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .lcd-header h1 {
+        font-size: 24px;
+    }
+    .lcd-section-title {
+        font-size: 22px;
+    }
+    .lcd-seo-content {
+        padding: 24px 16px;
+    }
+    .lcd-article {
+        padding: 16px;
+    }
+    .lcd-article h2 {
+        font-size: 20px;
+    }
+    .lcd-article-content h3 {
+        font-size: 16px;
+    }
+    .comparison-table {
+        font-size: 12px;
+    }
+    .comparison-table thead th,
+    .comparison-table tbody th,
+    .comparison-table tbody td {
+        padding: 8px 6px;
+    }
 }
