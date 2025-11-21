@@ -191,6 +191,14 @@ get_header();
         </div>
     </article>
 
+    <article class="lcd-article">
+        <h2><span class="lcd-emoji">🎉</span> チャットピアの女性たち</h2>
+        <div class="lcd-article-content">
+            <p>アダルトライブチャットの大手サイト、チャットピア。多彩な女性が在籍し、充実したサービスと安定した品質が魅力です。</p>
+            <?php echo do_shortcode('[angel_sort domain="chatpia.jp" limit="12"]'); ?>
+        </div>
+    </article>
+
     <!-- ⑥ 初心者ガイド -->
     <article class="lcd-article">
         <h2><span class="lcd-emoji">🔰</span> 初心者ガイド</h2>
