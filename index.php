@@ -166,6 +166,31 @@ get_header();
         </div>
     </article>
 
+    <!-- 各ライブチャットサイト別プロフィール -->
+    <article class="lcd-article">
+        <h2><span class="lcd-emoji">🌸</span> FANZAライブチャットの女性たち</h2>
+        <div class="lcd-article-content">
+            <p>プロのチャットレディが多く在籍するFANZAライブチャット。美人系から癒し系まで、多彩な女性が揃っています。</p>
+            <?php echo do_shortcode('[angel_sort domain="angel-live.com" limit="12"]'); ?>
+        </div>
+    </article>
+
+    <article class="lcd-article">
+        <h2><span class="lcd-emoji">🍰</span> マダムライブの女性たち</h2>
+        <div class="lcd-article-content">
+            <p>大人の魅力あふれる人妻系が中心のマダムライブ。落ち着いた雰囲気と包容力が魅力です。</p>
+            <?php echo do_shortcode('[angel_sort domain="madamlive.tv" limit="12"]'); ?>
+        </div>
+    </article>
+
+    <article class="lcd-article">
+        <h2><span class="lcd-emoji">💎</span> Jライブの女性たち</h2>
+        <div class="lcd-article-content">
+            <p>素人系・ギャル系の女性が多いJライブ。リアルな雰囲気とフレンドリーな対応が人気です。</p>
+            <?php echo do_shortcode('[angel_sort domain="j-live.tv" limit="12"]'); ?>
+        </div>
+    </article>
+
     <!-- ⑥ 初心者ガイド -->
     <article class="lcd-article">
         <h2><span class="lcd-emoji">🔰</span> 初心者ガイド</h2>
