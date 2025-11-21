@@ -1,21 +1,18 @@
-name: Deploy LiveChat Directory Theme v2 to ConoHa WING (s360.jp)
+name: Deploy LiveChat Theme to s360.jp
 
 on:
   push:
-    branches: [ main ]      # main更新で自動デプロイ
-  workflow_dispatch:         # 手動実行もOK
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-
-      # ① リポジトリを取得
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ② SSHセットアップ
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
@@ -23,15 +20,13 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      # ③ SSH接続テスト
       - name: Test SSH Connection
         run: |
           ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.SSH_PORT }} \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
             "echo '✅ SSH CONNECT OK' && hostname && pwd"
 
-      # ④ SFTPデプロイ
-      - name: Deploy Theme to ConoHa WING
+      - name: Deploy theme to ConoHa WING (s360.jp)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           server: ${{ secrets.SSH_HOST }}
@@ -39,11 +34,11 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-          # GitHub のテーマフォルダパスに合わせて変更
-          local_path: ./live-chat-directory-theme-v2/
+          # ここを修正。テーマが直置きなのでルートを使う
+          local_path: ./
 
-          # ← s360.jp のテーマディレクトリ（ConoHa）
-          remote_path: public_html/s360.jp/wp-content/themes/live-chat-directory-theme-v2/
+          # デプロイ先（フォルダ名をそのままテーマ名扱いにする）
+          remote_path: public_html/s360.jp/wp-content/themes/livechat/
 
           sftp_only: true
           delete_remote_files: false
