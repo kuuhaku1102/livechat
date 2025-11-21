@@ -58,6 +58,8 @@ a {
     height: 220px;
     object-fit: cover;
     display: block;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
 .lcd-oneword {
     padding: 10px 12px 12px;
@@ -71,4 +73,43 @@ a {
     margin-top: 32px;
     font-size: 12px;
     color: #999;
+}
+
+/* SEOコンテンツセクション */
+.lcd-seo-content {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.lcd-article {
+    margin-bottom: 32px;
+}
+.lcd-article:last-child {
+    margin-bottom: 0;
+}
+.lcd-article h2 {
+    font-size: 22px;
+    color: #222;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f0f5;
+}
+.lcd-article p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #444;
+    margin: 0;
+    text-align: justify;
+}
+.lcd-profiles-section {
+    margin-top: 48px;
+}
+.lcd-section-title {
+    font-size: 24px;
+    text-align: center;
+    margin: 0 0 24px;
+    color: #222;
 }
