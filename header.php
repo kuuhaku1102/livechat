@@ -33,13 +33,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div class="lcd-container">
+    <nav class="lcd-nav-top">
+        <div class="lcd-nav-container">
+            <div class="lcd-nav-logo">
+                <a href="<?php echo home_url('/'); ?>"><?php bloginfo( 'name' ); ?></a>
+            </div>
+            <ul class="lcd-nav-menu">
+                <li><a href="<?php echo home_url('/'); ?>"><span class="nav-icon">🏠</span>ホーム</a></li>
+                <li><a href="<?php echo home_url('/blog/'); ?>"><span class="nav-icon">📝</span>コラム</a></li>
+            </ul>
+        </div>
+    </nav>
     <header class="lcd-header">
         <h1><?php bloginfo( 'name' ); ?></h1>
         <p>ライブチャットプロフィールの最新一覧</p>
-        <nav class="lcd-nav">
-            <ul>
-                <li><a href="<?php echo home_url('/'); ?>">ホーム</a></li>
-                <li><a href="<?php echo home_url('/blog/'); ?>">コラム</a></li>
-            </ul>
-        </nav>
     </header>

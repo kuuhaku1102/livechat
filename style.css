@@ -340,43 +340,82 @@ a {
 }
 
 /* ===================================
-   ナビゲーションメニュー
+   ナビゲーションメニュー（トップ固定）
    =================================== */
-.lcd-nav {
-    margin-top: 20px;
-    padding: 15px 0;
-    border-top: 2px solid #ffc0e0;
-    border-bottom: 2px solid #ffc0e0;
+.lcd-nav-top {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(255, 107, 157, 0.1);
+    margin: -24px -16px 32px;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, #ff6b9d, #ffa8c5, #ff6b9d) 1;
 }
 
-.lcd-nav ul {
+.lcd-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lcd-nav-logo a {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff6b9d;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.lcd-nav-logo a:hover {
+    color: #c850c0;
+    transform: scale(1.05);
+}
+
+.lcd-nav-menu {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    gap: 8px;
 }
 
-.lcd-nav li {
+.lcd-nav-menu li {
     display: inline-block;
 }
 
-.lcd-nav a {
-    color: #ff6b9d;
+.lcd-nav-menu a {
+    color: #666;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 8px 20px;
-    border-radius: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     transition: all 0.3s ease;
+    background: transparent;
 }
 
-.lcd-nav a:hover {
+.lcd-nav-menu a:hover {
     background: linear-gradient(135deg, #ff6b9d 0%, #c850c0 100%);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
+}
+
+.lcd-nav-menu .nav-icon {
+    font-size: 18px;
+    display: inline-block;
 }
 
 /* ===================================
@@ -724,9 +763,24 @@ a {
    レスポンシブ対応（ブログページ用）
    =================================== */
 @media (max-width: 768px) {
-    .lcd-nav ul {
+    .lcd-nav-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+    
+    .lcd-nav-logo a {
+        font-size: 18px;
+    }
+    
+    .lcd-nav-menu {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .lcd-nav-menu a {
+        font-size: 14px;
+        padding: 8px 16px;
     }
     
     .lcd-blog-list {

@@ -17,14 +17,26 @@ get_header();
         <?php
         // コラムカテゴリーの記事を取得
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        
+        // 「コラム」カテゴリーを取得（存在しない場合は全記事を表示）
+        $column_category = get_category_by_slug('column');
+        if (!$column_category) {
+            // スラッグがない場合、名前で検索
+            $column_category = get_term_by('name', 'コラム', 'category');
+        }
+        
         $args = array(
             'post_type' => 'post',
             'posts_per_page' => 12,
             'paged' => $paged,
-            'category_name' => 'column', // コラムカテゴリーのスラッグ
             'orderby' => 'date',
             'order' => 'DESC'
         );
+        
+        // カテゴリーが存在する場合のみフィルタリング
+        if ($column_category) {
+            $args['cat'] = $column_category->term_id;
+        }
         
         $blog_query = new WP_Query($args);
         
