@@ -8,6 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function lcd_theme_enqueue_styles() {
     wp_enqueue_style( 'lcd-theme-style', get_stylesheet_uri(), array(), '2.0' );
+    
+    // 記事ページ用のスタイル
+    if ( is_single() ) {
+        wp_enqueue_style( 'lcd-article-style', get_template_directory_uri() . '/article-style.css', array('lcd-theme-style'), '1.0' );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'lcd_theme_enqueue_styles' );
 
