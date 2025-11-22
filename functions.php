@@ -12,6 +12,27 @@ function lcd_theme_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'lcd_theme_enqueue_styles' );
 
 /**
+ * テーマサポートの追加
+ */
+function lcd_theme_setup() {
+    // アイキャッチ画像のサポート
+    add_theme_support( 'post-thumbnails' );
+    
+    // タイトルタグのサポート
+    add_theme_support( 'title-tag' );
+    
+    // HTML5サポート
+    add_theme_support( 'html5', array(
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+    ) );
+}
+add_action( 'after_setup_theme', 'lcd_theme_setup' );
+
+/**
  * ルートドメイン単位のアフィリエイトリンク設定を取得
  *
  * @return array
