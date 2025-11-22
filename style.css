@@ -707,48 +707,249 @@ body {
 }
 
 .lcd-single-content {
-    background: #fff;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.1);
+    background: linear-gradient(135deg, #fff 0%, #fffbfc 100%);
+    padding: 48px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(255, 107, 157, 0.12);
     margin-bottom: 40px;
+    border: 1px solid rgba(255, 192, 224, 0.3);
 }
 
+/* 見出しの装飾 */
 .lcd-single-content h2 {
-    font-size: 24px;
+    font-size: 26px;
     color: #ff6b9d;
-    margin: 32px 0 16px;
-    padding-bottom: 12px;
-    border-bottom: 3px solid #ffc0e0;
+    margin: 48px 0 24px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #fff0f6 0%, #ffe8f0 100%);
+    border-radius: 12px;
+    border-left: 5px solid #ff6b9d;
+    box-shadow: 0 2px 10px rgba(255, 107, 157, 0.1);
+    position: relative;
+}
+
+.lcd-single-content h2::before {
+    content: '✨';
+    margin-right: 8px;
+    font-size: 22px;
+}
+
+.lcd-single-content h2:first-child {
+    margin-top: 0;
 }
 
 .lcd-single-content h3 {
-    font-size: 20px;
+    font-size: 22px;
     color: #c850c0;
-    margin: 24px 0 12px;
+    margin: 32px 0 16px;
+    padding-left: 20px;
+    border-left: 4px solid #ffc0e0;
+    position: relative;
 }
 
+.lcd-single-content h3::before {
+    content: '💖';
+    position: absolute;
+    left: -8px;
+    font-size: 18px;
+}
+
+.lcd-single-content h4 {
+    font-size: 18px;
+    color: #ff6b9d;
+    margin: 24px 0 12px;
+    padding-left: 16px;
+    border-left: 3px solid #ffd4e5;
+}
+
+/* 段落の装飾 */
 .lcd-single-content p {
     font-size: 16px;
-    line-height: 1.9;
-    margin-bottom: 20px;
-    color: #444;
+    line-height: 2;
+    margin-bottom: 24px;
+    color: #333;
+    text-align: justify;
 }
 
+.lcd-single-content p:first-of-type {
+    font-size: 17px;
+    font-weight: 500;
+    color: #555;
+    padding: 20px;
+    background: linear-gradient(135deg, #fffbfc 0%, #fff5f7 100%);
+    border-radius: 12px;
+    border-left: 4px solid #ffc0e0;
+}
+
+/* リストの装飾 */
 .lcd-single-content ul,
 .lcd-single-content ol {
-    margin: 20px 0;
+    margin: 24px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.lcd-single-content ul li {
+    margin-bottom: 16px;
     padding-left: 32px;
+    line-height: 1.9;
+    position: relative;
 }
 
-.lcd-single-content li {
-    margin-bottom: 10px;
-    line-height: 1.8;
+.lcd-single-content ul li::before {
+    content: '🌸';
+    position: absolute;
+    left: 0;
+    font-size: 18px;
 }
 
+.lcd-single-content ol {
+    counter-reset: item;
+}
+
+.lcd-single-content ol li {
+    margin-bottom: 16px;
+    padding-left: 40px;
+    line-height: 1.9;
+    position: relative;
+    counter-increment: item;
+}
+
+.lcd-single-content ol li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c850c0 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(255, 107, 157, 0.3);
+}
+
+/* 強調テキスト */
 .lcd-single-content strong {
     color: #ff6b9d;
+    font-weight: 700;
+    background: linear-gradient(transparent 60%, rgba(255, 192, 224, 0.4) 60%);
+    padding: 2px 4px;
+}
+
+/* 引用 */
+.lcd-single-content blockquote {
+    margin: 32px 0;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, #fff5f7 0%, #fffbfc 100%);
+    border-left: 5px solid #ff6b9d;
+    border-radius: 12px;
+    font-style: italic;
+    color: #666;
+    box-shadow: 0 2px 10px rgba(255, 107, 157, 0.08);
+}
+
+.lcd-single-content blockquote::before {
+    content: '“';
+    font-size: 48px;
+    color: #ffc0e0;
+    line-height: 0;
+    margin-right: 8px;
+}
+
+/* リンク */
+.lcd-single-content a {
+    color: #ff6b9d;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(255, 107, 157, 0.3);
+    transition: all 0.3s ease;
     font-weight: 600;
+}
+
+.lcd-single-content a:hover {
+    color: #c850c0;
+    border-bottom-color: #c850c0;
+    background: rgba(255, 192, 224, 0.1);
+}
+
+/* コードブロック */
+.lcd-single-content code {
+    background: #fff0f6;
+    color: #c850c0;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.lcd-single-content pre {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 24px 0;
+}
+
+.lcd-single-content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+}
+
+/* テーブル */
+.lcd-single-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.1);
+}
+
+.lcd-single-content table thead {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c850c0 100%);
+    color: white;
+}
+
+.lcd-single-content table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.lcd-single-content table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #ffc0e0;
+}
+
+.lcd-single-content table tbody tr:hover {
+    background: #fff5f7;
+}
+
+.lcd-single-content table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 画像 */
+.lcd-single-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.15);
+    margin: 24px 0;
+}
+
+/* 水平線 */
+.lcd-single-content hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffc0e0, transparent);
+    margin: 40px 0;
 }
 
 .lcd-single-tags {
@@ -847,6 +1048,31 @@ body {
     
     .lcd-single-content {
         padding: 24px;
+    }
+    
+    .lcd-single-content h2 {
+        font-size: 22px;
+        padding: 16px 20px;
+        margin: 32px 0 20px;
+    }
+    
+    .lcd-single-content h3 {
+        font-size: 20px;
+    }
+    
+    .lcd-single-content p {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+    
+    .lcd-single-content p:first-of-type {
+        font-size: 16px;
+        padding: 16px;
+    }
+    
+    .lcd-single-content ul li,
+    .lcd-single-content ol li {
+        font-size: 15px;
     }
     
     .lcd-single-title {
