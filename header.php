@@ -36,4 +36,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     <header class="lcd-header">
         <h1><?php bloginfo( 'name' ); ?></h1>
         <p>ライブチャットプロフィールの最新一覧</p>
+        <nav class="lcd-nav">
+            <ul>
+                <li><a href="<?php echo home_url('/'); ?>">ホーム</a></li>
+                <li><a href="<?php echo home_url('/blog/'); ?>">コラム</a></li>
+            </ul>
+        </nav>
     </header>

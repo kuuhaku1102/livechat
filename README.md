@@ -31,6 +31,56 @@
 プロフィールテーブル（`{$wpdb->prefix}live_profiles` または定数 `LPM_TABLE_NAME` で指定されたテーブル）が存在する場合のみ動作します。データが見つからない場合はメッセージを表示します。
 
 
+## AI記事自動投稿システム
+
+### 概要
+
+AIによる記事の自動生成・投稿機能を備えたシステムです。GitHub Actionsで毎日定時実行され、完全自動で高品質なコンテンツを生成します。
+
+### 主要機能
+
+- **キーワード管理システム**: 3,456パターンのキーワード組み合わせ
+- **AI記事生成**: GPT-4.1-miniでSEO最適化記事を生成（2,500文字以上）
+- **アイキャッチ画像自動取得**: Unsplash/Pexels/Picsum対応
+- **WordPress自動投稿**: REST API経由で自動公開
+- **GitHub Actions定時実行**: 毎日午前10時（日本時間）
+
+### ファイル構成
+
+```
+scripts/
+├── keywords.json           # キーワードデータベース
+├── keyword_manager.py      # キーワード管理
+├── article_generator.py    # AI記事生成
+├── image_fetcher.py        # 画像取得
+├── wordpress_poster.py     # WordPress投稿
+└── auto_post.py            # 統合メインスクリプト
+```
+
+### 使用方法
+
+#### 手動実行
+
+```bash
+cd scripts
+export OPENAI_API_KEY="your-api-key"
+export WP_APP_PASSWORD="your-app-password"
+python3 auto_post.py
+```
+
+#### GitHub Actionsで自動実行
+
+1. GitHub Secretsを設定（詳細は `github_secrets_setup.md` 参照）
+2. 毎日午前10時に自動実行
+3. 手動実行も可能（Actionsタブから）
+
+### 詳細ドキュメント
+
+- **最終報告書**: `AI_AUTO_POST_FINAL_REPORT.md`
+- **GitHub Secrets設定**: `github_secrets_setup.md`
+
+---
+
 ## 更新履歴
 
 ### 2025-11-21

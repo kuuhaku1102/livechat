@@ -1,0 +1,109 @@
+{
+  "main_keywords": [
+    "エロライブチャット",
+    "マダムライブ",
+    "エンジェルライブ",
+    "Jライブ",
+    "チャットピア",
+    "アダルトライブチャット",
+    "人妻ライブチャット",
+    "素人ライブチャット",
+    "ライブチャット",
+    "ノンアダルトライブチャット",
+    "ぽっちゃりライブチャット",
+    "熟女ライブチャット"
+  ],
+  "sub_keywords": [
+    "40代",
+    "50代",
+    "初心者",
+    "安全性",
+    "料金",
+    "無料ポイント",
+    "楽しみ方",
+    "選び方",
+    "おすすめ",
+    "比較",
+    "口コミ",
+    "評判",
+    "体験談",
+    "攻略法",
+    "コツ",
+    "注意点",
+    "メリット",
+    "デメリット",
+    "人気",
+    "ランキング",
+    "お得",
+    "キャンペーン",
+    "会話術",
+    "マナー"
+  ],
+  "article_types": [
+    {
+      "type": "usage_guide",
+      "title_pattern": "{main_keyword}の賢い使い方｜{sub_keyword}向け完全ガイド",
+      "prompt_template": "「{main_keyword}」について、{sub_keyword}の視点から詳しく解説する記事を書いてください。使い方、楽しみ方、注意点などを網羅的に説明し、初心者にもわかりやすく、実践的な内容にしてください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "experience",
+      "title_pattern": "{main_keyword}を実際に使ってみた！{sub_keyword}のリアルな体験談",
+      "prompt_template": "「{main_keyword}」を実際に利用した体験談を、{sub_keyword}の視点から詳しく書いてください。具体的なエピソード、感じたこと、良かった点・悪かった点を含め、リアルで人間味のある文章にしてください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "comparison",
+      "title_pattern": "{main_keyword}徹底比較！{sub_keyword}で選ぶベストサイト",
+      "prompt_template": "「{main_keyword}」の主要サイトを、{sub_keyword}の観点から徹底比較する記事を書いてください。各サイトの特徴、料金、サービス内容を比較し、どのサイトがどんな人におすすめかを明確に示してください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "qa",
+      "title_pattern": "{main_keyword}のよくある質問｜{sub_keyword}が知りたいQ&A集",
+      "prompt_template": "「{main_keyword}」について、{sub_keyword}に関連するよくある質問とその回答をQ&A形式でまとめてください。10個以上の質問を用意し、それぞれに丁寧で実用的な回答を付けてください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "beginner",
+      "title_pattern": "{main_keyword}初心者ガイド｜{sub_keyword}から始める完全マニュアル",
+      "prompt_template": "「{main_keyword}」の初心者向けガイドを、{sub_keyword}の視点から書いてください。登録方法、基本的な使い方、初心者が陥りやすい失敗、成功のコツなどを段階的に説明してください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "safety",
+      "title_pattern": "{main_keyword}の安全な使い方｜{sub_keyword}が注意すべきポイント",
+      "prompt_template": "「{main_keyword}」を安全に利用するための注意点を、{sub_keyword}の視点から詳しく解説してください。個人情報保護、詐欺の見分け方、トラブル回避方法などを具体的に説明してください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "cost",
+      "title_pattern": "{main_keyword}の料金体系完全ガイド｜{sub_keyword}でお得に楽しむ方法",
+      "prompt_template": "「{main_keyword}」の料金体系について、{sub_keyword}の視点から詳しく解説してください。料金の仕組み、相場、お得な使い方、コストを抑えるコツなどを具体的に説明してください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "ranking",
+      "title_pattern": "{main_keyword}おすすめランキング｜{sub_keyword}で選ぶTOP5",
+      "prompt_template": "「{main_keyword}」のおすすめサイトを、{sub_keyword}の観点からランキング形式で紹介してください。各サイトの特徴、おすすめポイント、向いている人などを詳しく説明してください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "tips",
+      "title_pattern": "{main_keyword}で成功する10のコツ｜{sub_keyword}向け攻略法",
+      "prompt_template": "「{main_keyword}」で成功するための具体的なコツを、{sub_keyword}の視点から10個以上紹介してください。それぞれのコツについて、なぜ重要か、どう実践するかを詳しく説明してください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "review",
+      "title_pattern": "{main_keyword}の口コミ・評判まとめ｜{sub_keyword}のリアルな声",
+      "prompt_template": "「{main_keyword}」の口コミや評判を、{sub_keyword}の視点からまとめてください。良い口コミ、悪い口コミの両方を紹介し、総合的な評価と利用を検討している人へのアドバイスを含めてください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "trend",
+      "title_pattern": "{main_keyword}の最新トレンド｜{sub_keyword}で注目の動向",
+      "prompt_template": "「{main_keyword}」の最新トレンドや動向を、{sub_keyword}の視点から解説してください。業界の変化、新しいサービス、今後の展望などを含め、読者が知っておくべき情報をまとめてください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    },
+    {
+      "type": "mistake",
+      "title_pattern": "{main_keyword}でやってはいけない失敗例｜{sub_keyword}が避けるべき落とし穴",
+      "prompt_template": "「{main_keyword}」でよくある失敗例を、{sub_keyword}の視点から紹介してください。それぞれの失敗について、なぜ起こるのか、どう避けるか、もし失敗したらどう対処するかを具体的に説明してください。2500文字以上、SEOに最適化されたHTML形式で出力してください。"
+    }
+  ],
+  "used_combinations": [
+    "エンジェルライブ|デメリット|ranking",
+    "エンジェルライブ|初心者|comparison",
+    "チャットピア|初心者|safety"
+  ]
+}
