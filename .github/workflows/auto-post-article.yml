@@ -1,0 +1,54 @@
+name: AI記事自動投稿
+
+on:
+  # 定時実行（毎日午前10時 JST = 午前1時 UTC ）
+  schedule:
+    - cron: '0 1 * * *'  # 毎日午前1時 UTC（日本時間午前10時）
+  
+  # 手動実行を許可
+  workflow_dispatch:
+
+jobs:
+  auto-post:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Pythonセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: 依存関係をインストール
+        run: |
+          pip install --upgrade pip
+          pip install openai requests
+      
+      - name: AI記事を生成して投稿
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          WP_SITE_URL: ${{ secrets.WP_SITE_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          cd scripts
+          python3 auto_post.py
+      
+      - name: 使用済みキーワードをコミット
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # keywords.jsonが変更されている場合のみコミット
+          if git diff --quiet scripts/keywords.json; then
+            echo "keywords.jsonに変更がありません"
+          else
+            git add scripts/keywords.json
+            git commit -m "Update used keyword combinations [skip ci]"
+            git push
+            echo "keywords.jsonを更新しました"
+          fi
