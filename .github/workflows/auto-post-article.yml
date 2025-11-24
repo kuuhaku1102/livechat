@@ -1,12 +1,16 @@
 name: AI記事自動投稿
 
 on:
-  # 定時実行（毎日午前10時 JST = 午前1時 UTC ）
+  # 定時実行（毎日午前10時 JST = 午前1時 UTC）
   schedule:
     - cron: '0 1 * * *'  # 毎日午前1時 UTC（日本時間午前10時）
   
   # 手動実行を許可
   workflow_dispatch:
+
+# ワークフローに書き込み権限を付与
+permissions:
+  contents: write
 
 jobs:
   auto-post:
@@ -15,8 +19,6 @@ jobs:
     steps:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Pythonセットアップ
         uses: actions/setup-python@v5
