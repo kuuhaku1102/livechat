@@ -1,4 +1,4 @@
-name: Deploy LiveChat Directory v2 Theme to s360.jp
+name: Deploy Lovedoll Theme to freya-era.com
 
 on:
   push:
@@ -25,9 +25,9 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.SSH_PORT }} \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "mkdir -p public_html/s360.jp/wp-content/themes/live-chat-directory-theme-v2"
+            "mkdir -p public_html/freya-era.com/wp-content/themes/lovedoll-theme"
 
-      - name: Deploy theme to s360.jp
+      - name: Deploy theme to freya-era.com
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           server: ${{ secrets.SSH_HOST }}
@@ -35,11 +35,12 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-          # GitHubリポジトリのテーマファイルはルート直下
+          # GitHubリポジトリのテーマファイルがある場所
+          # ルート直下なら ./ のままでOK。サブフォルダなら ./lovedoll-theme/ に変更
           local_path: ./
 
-          # ← 正しいフォルダ名（ここ最重要）
-          remote_path: public_html/s360.jp/wp-content/themes/live-chat-directory-theme-v2/
+          # freya-era.com 用の正しいパス
+          remote_path: public_html/freya-era.com/wp-content/themes/lovedoll-theme/
 
           sftp_only: true
           delete_remote_files: false
