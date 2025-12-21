@@ -12,7 +12,7 @@ get_header();
 
 <!-- プロフィールカード一覧（12件に制限） -->
 <section class="lcd-profiles-section">
-    <h2 class="lcd-section-title">💕 人気のライブチャット女性プロフィール 💕</h2>
+    <h2 class="lcd-section-title">人気のライブチャット女性プロフィール</h2>
     <?php
     // カード一覧を12件に制限して出力
     echo lcd_get_live_profiles_cards( 12 );
@@ -24,7 +24,7 @@ get_header();
 
     <!-- ① ライブチャットとは？ -->
     <article class="lcd-article">
-        <h2><span class="lcd-emoji">💌</span> ライブチャットとは？</h2>
+        <h2><span class="lcd-emoji">💬</span> ライブチャットとは？</h2>
         <div class="lcd-article-content">
             <p>ライブチャットは、インターネットを通じてリアルタイムで配信者さんとコミュニケーションを楽しむサービスです。スマホやPCがあれば、いつでもどこでも、気になる相手と二人きりの時間を過ごせます。</p>
             <h3>ライブチャットの仕組み</h3>
